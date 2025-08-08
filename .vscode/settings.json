@@ -1,39 +1,42 @@
 {
-    // editor settings
-    "editor.rulers": [10, 100, 120],
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file",
-    "files.trimTrailingWhitespace": true,
-    // python editor settings
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit",
-            "source.fixAll": "explicit",
-            "source.unusedImports": "explicit",
-            "source.fixAll.pylance": "explicit",
-        },
-        "editor.tabSize": 4,
-        "editor.insertSpaces": true,
-        "editor.formatOnSave": true,
-        "editor.formatOnType": false,
+  // editor settings
+  "editor.rulers": [10, 100, 120],
+  "editor.formatOnSave": true,
+  "editor.trimAutoWhitespace": true,
+  "editor.formatOnSaveMode": "file",
+
+  // files settings
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+
+  // python linter settings
+  "flake8.args": ["--max-line-length=120", "--ignore=E712,E501"],
+  "autopep8.args": ["--max-line-length=120", "--remove-all-unused-imports"],
+  "black-formatter.args": [
+    "--line-length=120",
+    "--skip-string-normalization", // 不要替换引号
+    "--force-single-line" // 操作符换行时，保持操作符在行尾
+  ],
+
+  // python settings
+  "python.languageServer": "Pylance",
+  "python.analysis.importFormat": "relative",
+  "python.analysis.autoImportCompletions": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+
+  // python editor settings
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll": "explicit",
+      "source.unusedImports": "explicit",
+      "source.fixAll.pylance": "explicit"
     },
-    // python settings
-    "python.languageServer": "Pylance",
-    "python.terminal.activateEnvInCurrentTerminal": true,
-    // linter settings
-    "flake8.args": [
-        "--max-line-length=120",
-        "--ignore=E712"
-    ],
-    "autopep8.args": [
-        "--max-line-length=120",
-        // 自动移除未使用的import
-        "--remove-all-unused-imports",
-    ],
-    "black-formatter.args": [
-        "--line-length=120",
-        // 不要替换引号
-        "--skip-string-normalization",
-    ],
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false
+  }
 }
